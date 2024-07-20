@@ -158,11 +158,11 @@ for item in largeDataType:
 ### Logical operators
 
 Logical operators can either be written as thier operator or word form. For example this:
-``` C++
+```
 || && !
 ```
 Is the same as:
-``` Python
+```
 or and not
 ```
 
