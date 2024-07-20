@@ -4,7 +4,7 @@
 
 LX is a staticly typed language. Similar to C++ you can declare a variable without defining it.
 
-```Python
+```
 int var1 = 0;
 int var2; # Undefined
 ```
@@ -23,13 +23,13 @@ When defining a variable using a type you can modify attributes of the type usin
 
 This is how you mark a variable as const. Const variables must be defined at declaration and cannot be reassigned.
 
-```Python
+```
 # Const integer worth 5
 int[C] constVar = 5;
 ```
 
 This is also how you define references to variables
-```Python
+```
 # Integer worth 7
 int var = 7;
 
@@ -44,7 +44,7 @@ ref = ref + 1;
 
 Int and float types have extra two attributes (signed, size).
 
-```Python
+```
 # Simple declaration
 int var;
 
@@ -67,17 +67,15 @@ Char has no sizes and only can be signed and unsigned
 
 Comments in LX are marked with a #. The comment ends at the end of the line or at the next hashtag.
 
-```Python
-
+```
 # This is a comment # while (true)
-
 ```
 
 ### Simple Control Flow
 
 If statement conditions are not required to be in brackets but must be followed by a colon. The following code must be in Braces. If no braces are found it will assume the next line of code is the contents.
 
-```Python
+```
 if true:
     console::print("Condition is true");
 
@@ -86,7 +84,7 @@ console::print("This will not be in the if statement");
 
 LX also supports elif and else
 
-```Python
+```
 if false:
     console::print("This wont run");
 
@@ -101,7 +99,7 @@ else:
 
 Similar to if-else statements while loops do not require brackets around the statement. The contents of the 
 
-```Python
+```
 while True:
 {
     console::print("Who else loves infinite loops");
@@ -110,7 +108,7 @@ while True:
 
 You can also chain else off a while statement. The else statement will only run if the loop is never run.
 
-```Python
+```
 while False:
 {
     console::print("Loop never runs");
@@ -126,7 +124,7 @@ else
 
 LX takes inspiration from python for its for loops.
 
-```Python
+```
 # Iterates upto 5
 for i in [5]:
 {
@@ -139,7 +137,7 @@ for i in [5]:
 ```
 
 You can modify what it starts iterating from and what it iterates by like this:
-```Python
+```
 # Starts on 2
 # Ends on 5
 # Iterates 0.5 every loop
@@ -150,7 +148,7 @@ for i in [2, 5, 0.5]:
 
 You can iterate over items in a array/list/vector. The iterator(item in the example) will be a reference to the variable in the large data type. This means any modifications to it will also change the variable in the large data type.
 
-```Python
+```
 for item in largeDataType:
 {
     console::print(item);
@@ -174,7 +172,7 @@ LX has two types of functions: procedure and standard
 
 Standard functions are defined as such:
 
-```Python
+```
 func<int> main()
 {
     return 0;
@@ -183,7 +181,7 @@ func<int> main()
 
 Procedure function calls are replaced with the function code (similar to inline functions in C++). For highest performace they are best used for frequently called simple functions. Such as setters and getters.
 
-```Python
+```
 proc<int> getVar()
 {
     return var;
@@ -192,7 +190,7 @@ proc<int> getVar()
 
 Similiar to if statements if no braces are found it will assume the next line of code is the contents
 
-```Python
+```
 proc<int> getVar()
     return var;
 ```
