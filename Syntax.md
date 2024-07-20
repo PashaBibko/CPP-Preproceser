@@ -116,7 +116,7 @@ else
 
 LX takes inspiration from python for its for loops.
 
-```C++
+```Python
 // Iterates upto 5
 for i in [5]:
 {
