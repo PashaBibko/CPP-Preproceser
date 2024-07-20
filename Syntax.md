@@ -76,7 +76,7 @@ console::print("This will not be in the if statement");
 
 LX also supports elif and else
 
-```C++
+```Python
 if false:
     console::print("This wont run");
 
@@ -129,7 +129,7 @@ for i in [5]:
 ```
 
 You can modify what it starts iterating from and what it iterates by like this:
-```C++
+```Python
 // Starts on 2
 // Ends on 5
 // Iterates 0.5 every loop
