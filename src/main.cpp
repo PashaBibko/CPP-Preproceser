@@ -5,6 +5,8 @@
 
 #include <util/util.h>
 
+#include <parser/ast.h>
+
 #include <lexer/lexer.h>
 
 static inline std::string readFileToString(const std::string& filePath) {
