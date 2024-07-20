@@ -9,11 +9,11 @@ enum class TokenType : unsigned short
 
 	// Basic types //
 	INT,
-	FLOAT,
-	DOUBLE,
 	CHAR,
 	BOOL,
 	VOID,
+	FLOAT,
+	STRING,
 
 	// Control flow //
 
@@ -26,18 +26,14 @@ enum class TokenType : unsigned short
 	FOR,
 	WHILE,
 
-	// Switch statement types
-	SWITCH,
-	TYPE_SWITCH,
-
-	// Switch statement cases
-	CASE,
-	DEFAULT,
-
 	// Goto statements
 	BREAK,
 	CONTINUE,
 	RETURN,
+
+	// Functions
+	FUNCTION,
+	PROCEDURE,
 
 	// Operators //
 

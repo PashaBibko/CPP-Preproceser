@@ -12,6 +12,11 @@ static constexpr bool isWhitespace(const char c)
 	return c == ' ' || c == '\t' || c == '\n' || c == '\r';
 }
 
+static constexpr bool isAlphaNumeric(const char c)
+{
+	return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9');
+}
+
 Token Lexer::lexMultiChar()
 {
 	//
@@ -21,7 +26,7 @@ Token Lexer::lexMultiChar()
 	size_t lengthOfWord = 1;
 
 	// Loops through the source code until the whitespace is reached
-	while (currentIndex + lengthOfWord < currentSource.length() && !isWhitespace(currentSource[currentIndex + lengthOfWord]))
+	while (currentIndex + lengthOfWord < currentSource.length() && isAlphaNumeric(currentSource[currentIndex + lengthOfWord]))
 		lengthOfWord++;
 
 	// Turns the word into a string

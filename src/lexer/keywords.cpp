@@ -9,11 +9,11 @@ const TransTable<std::string, TokenType> Lexer::keywords
 	// Basic types
 
 	{ "int", TokenType::INT },
-	{ "float", TokenType::FLOAT },
-	{ "double", TokenType::DOUBLE },
 	{ "char", TokenType::CHAR },
 	{ "bool", TokenType::BOOL },
 	{ "void", TokenType::VOID },
+	{ "float", TokenType::FLOAT },
+	{ "string", TokenType::STRING },
 
 	// Control flow
 	{ "if", TokenType::IF },
@@ -22,32 +22,14 @@ const TransTable<std::string, TokenType> Lexer::keywords
 	{ "for", TokenType::FOR },
 	{ "while", TokenType::WHILE },
 
-	{ "switch", TokenType::SWITCH },
-	{ "type_switch", TokenType::TYPE_SWITCH },
-
-	{ "case", TokenType::CASE },
-	{ "default", TokenType::DEFAULT },
-
 	{ "break", TokenType::BREAK },
 	{ "continue", TokenType::CONTINUE },
 	{ "return", TokenType::RETURN },
 
-	// Maths
-	{ "+=", TokenType::PLUS_EQUALS },
-	{ "-=", TokenType::MINUS_EQUALS },
-	{ "*=", TokenType::MULTIPLY_EQUALS },
-	{ "/=", TokenType::DIVIDE_EQUALS },
+	{ "func", TokenType::FUNCTION },
+	{ "proc", TokenType::PROCEDURE },
 
-	{ "++", TokenType::INCREMENT },
-	{ "--", TokenType::DECREMENT },
-
-	{ "==", TokenType::EQUALS },
-	{ "!=", TokenType::NOT_EQUALS },
-	{ ">", TokenType::GREATER_THAN },
-	{ "<", TokenType::LESS_THAN },
-	{ ">=", TokenType::GREATER_THAN_EQUALS },
-	{ "<=", TokenType::LESS_THAN_EQUALS },
-
+	// Logical
 	{ "&&", TokenType::AND },
 	{ "and", TokenType::AND },
 
