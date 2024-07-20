@@ -2,6 +2,8 @@
 
 This project is creating a preprocsessor for C++. This means lx code will be translated into c++ then compiled.
 
+Syntax for the language can be found in Syntax.md
+
 ## Features of LX
 
 ##### 1. Type Switching
@@ -20,5 +22,3 @@ This project is creating a preprocsessor for C++. This means lx code will be tra
 ###### 2. GLSL
 ###### 3. Lua
 ###### 4. Python
-
-## How to use LX
