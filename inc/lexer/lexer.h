@@ -13,10 +13,7 @@ class Lexer
 	private:
 		std::string& currentSource;
 
-		size_t currentIndex;
-
-		size_t currentLine;
-		size_t currentIndexOfLine;
+		size_t currentIndex = 0;
 
 		// Operator Functions defined in lexer/operator.cpp
 

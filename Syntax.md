@@ -4,9 +4,9 @@
 
 LX is a staticly typed language. Similar to C++ you can declare a variable without defining it.
 
-```C++
+```Python
 int var1 = 0;
-int var2; // Undefined
+int var2; # Undefined
 ```
 
 ### Types
@@ -23,51 +23,61 @@ When defining a variable using a type you can modify attributes of the type usin
 
 This is how you mark a variable as const. Const variables must be defined at declaration and cannot be reassigned.
 
-```C++
-// Const integer worth 5
+```Python
+# Const integer worth 5
 int[C] constVar = 5;
 ```
 
 This is also how you define references to variables
-```C++
-// Integer worth 7
+```Python
+# Integer worth 7
 int var = 7;
 
-// Creating a reference to it
+# Creating a reference to it
 int[R] ref = var;
 
-// Modifying the reference
+# Modifying the reference
 ref = ref + 1;
 
-// Var is now worth 8
+# Var is now worth 8
 ```
 
 Int and float types have extra two attributes (signed, size).
 
-```C++
-// Simple declaration
+```Python
+# Simple declaration
 int var;
 
-// Unsigned int declaration
+# Unsigned int declaration
 int[U] var;
 
-// Small int declaration
+# Small int declaration
 int[S] var;
 
-// There are 3 size:
-// S(Small), N(Normal), L(Large)
+# There are 3 size:
+# S(Small), N(Normal), L(Large)
 
-// Creates a unsigned small int
+# Creates a unsigned small int
 int[ S, U ] var;
 ```
 
-Char only can be signed and unsigned
+Char has no sizes and only can be signed and unsigned
+
+### Comments
+
+Comments in LX are marked with a #. The comment ends at the end of the line or at the next hashtag.
+
+```Python
+
+# This is a comment # while (true)
+
+```
 
 ### Simple Control Flow
 
 If statement conditions are not required to be in brackets but must be followed by a colon. The following code must be in Braces. If no braces are found it will assume the next line of code is the contents.
 
-```C++
+```Python
 if true:
     console::print("Condition is true");
 
@@ -91,7 +101,7 @@ else:
 
 Similar to if-else statements while loops do not require brackets around the statement. The contents of the 
 
-```C++
+```Python
 while True:
 {
     console::print("Who else loves infinite loops");
@@ -100,7 +110,7 @@ while True:
 
 You can also chain else off a while statement. The else statement will only run if the loop is never run.
 
-```C++
+```Python
 while False:
 {
     console::print("Loop never runs");
@@ -117,22 +127,22 @@ else
 LX takes inspiration from python for its for loops.
 
 ```Python
-// Iterates upto 5
+# Iterates upto 5
 for i in [5]:
 {
     console::print(i, "\t");
 }
 
-// Output:
-// 0    1   2   3   4
+# Output:
+# 0    1   2   3   4
 
 ```
 
 You can modify what it starts iterating from and what it iterates by like this:
 ```Python
-// Starts on 2
-// Ends on 5
-// Iterates 0.5 every loop
+# Starts on 2
+# Ends on 5
+# Iterates 0.5 every loop
 for i in [2, 5, 0.5]:
 ```
 
@@ -164,7 +174,7 @@ LX has two types of functions: procedure and standard
 
 Standard functions are defined as such:
 
-```C++
+```Python
 func<int> main()
 {
     return 0;
@@ -173,7 +183,7 @@ func<int> main()
 
 Procedure function calls are replaced with the function code (similar to inline functions in C++). For highest performace they are best used for frequently called simple functions. Such as setters and getters.
 
-```C++
+```Python
 proc<int> getVar()
 {
     return var;
@@ -182,7 +192,7 @@ proc<int> getVar()
 
 Similiar to if statements if no braces are found it will assume the next line of code is the contents
 
-```C++
+```Python
 proc<int> getVar()
     return var;
 ```

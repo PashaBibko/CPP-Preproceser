@@ -17,6 +17,11 @@ static constexpr bool isAlphaNumeric(const char c)
 	return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9');
 }
 
+static constexpr bool isEndOfComment(const char c)
+{
+	return c == '\n' || c == '#';
+}
+
 Token Lexer::lexMultiChar()
 {
 	//
@@ -62,9 +67,6 @@ std::vector<Token> Lexer::lex(const std::string& input)
 	// Sets lexer variables to their default values
 	currentIndex = 0;
 
-	currentLine = 1;
-	currentIndexOfLine = 1;
-
 	const size_t sourceLength = currentSource.length();
 
 	// Loops through the source code until the end is reached
@@ -86,13 +88,21 @@ std::vector<Token> Lexer::lex(const std::string& input)
 		{
 			// Skips whitespace
 			case '\n':
-				currentLine++;
-				currentIndexOfLine = 1;
 				break;
 
 			case ' ':
+				break;
+
 			case '\t':
+				break;
+			
+			
 			case '\r':
+				break;
+
+			// Skips comments
+			case '#':
+				do { currentIndex++; } while (currentIndex < sourceLength && !isEndOfComment(currentSource[currentIndex]));
 				break;
 
 			// Single character tokens
