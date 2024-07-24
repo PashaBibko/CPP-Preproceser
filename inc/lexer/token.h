@@ -5,17 +5,14 @@
 enum class TokenType : unsigned short
 {
 	// Identifiers //
-	IDENTIFIER,
+	IDENTIFIER, // ( Word )
 
-	// Basic types //
-	INT,
-	CHAR,
-	BOOL,
-	VOID,
-	FLOAT,
-	STRING,
+	// Var Modifiers //
+
+	CONST,
 
 	// Control flow //
+	// These are not identifiers because thier behavior cannot be changed at compile/runtime //
 
 	// Simple control flow
 	IF,
@@ -61,11 +58,11 @@ enum class TokenType : unsigned short
 	EQUALS,
 	NOT_EQUALS,
 
-	GREATER_THAN,
-	GREATER_THAN_EQUALS,
+	GREATER_THAN, // >
+	GREATER_THAN_EQUALS, // >=
 
-	LESS_THAN,
-	LESS_THAN_EQUALS,
+	LESS_THAN, // <
+	LESS_THAN_EQUALS, // <=
 
 	// Logical operators
 	AND,

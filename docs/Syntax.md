@@ -19,24 +19,11 @@ int var2; # Undefined
 - void (empty)
 - string (a list of characters)
 
-When defining a variable using a type you can modify attributes of the type using the operator[].
-
-This is how you mark a variable as const. Const variables must be defined at declaration and cannot be reassigned.
+When defining a variable using a type you can modify attributes of the type using the operator[]. To mark a variable as a constant use the const keyword:
 
 ```
-# Const integer worth 5
-int[C] constVar = 5;
-```
-
-This is also how you define references to variables
-```
-# Integer worth 7
-int var = 7;
-# Creating a reference to it
-int[R] ref = var;
-# Modifying the reference
-ref = ref + 1;
-# Var is now worth 8
+# Constant Integer worth 5
+const int var = 5;
 ```
 
 Int and float types have extra two attributes (signed, size).
@@ -44,12 +31,16 @@ Int and float types have extra two attributes (signed, size).
 ```
 # Simple declaration
 int var;
+
 # Unsigned int declaration
 int[U] var;
+
 # Small int declaration
 int[S] var;
+
 # There are 3 size:
 # S(Small), N(Normal), L(Large)
+
 # Creates a unsigned small int
 int[ S, U ] var;
 ```

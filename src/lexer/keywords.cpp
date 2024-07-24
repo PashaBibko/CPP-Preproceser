@@ -6,14 +6,8 @@
 
 const TransTable<std::string, TokenType> Lexer::keywords
 ({
-	// Basic types
-
-	{ "int", TokenType::INT },
-	{ "char", TokenType::CHAR },
-	{ "bool", TokenType::BOOL },
-	{ "void", TokenType::VOID },
-	{ "float", TokenType::FLOAT },
-	{ "string", TokenType::STRING },
+	// Variables
+	{ "const", TokenType::CONST },
 
 	// Control flow
 	{ "if", TokenType::IF },

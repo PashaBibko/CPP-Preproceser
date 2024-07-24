@@ -1,31 +1,6 @@
-#include <iostream>
-#include <sstream>
-#include <fstream>
-#include <string>
-
-#include <util/util.h>
-
-#include <parser/ast.h>
-
+#include <misc/fileRead.h>
 #include <lexer/lexer.h>
-
-static inline std::string readFileToString(const std::string& filePath) {
-	// Create an input file stream
-	std::ifstream file(filePath);
-
-	// Check if the file opened successfully
-	if (!file.is_open()) {
-		std::cerr << "Error opening file: " << filePath << std::endl;
-		return "";
-	}
-
-	// Create a stringstream to hold the file contents
-	std::stringstream buffer;
-	buffer << file.rdbuf();
-
-	// Return the contents as a string
-	return buffer.str();
-}
+#include <util/util.h>
 
 #define OUTPUT_TOKEN_CASE(in) case TokenType::in: std::cout << #in << std::endl; break;
 
@@ -33,13 +8,12 @@ int main(int argc, char* argv[])
 {
 	Lexer lexer;
 
-	std::vector<Token> tokens = lexer.lex(readFileToString("C:/Users/Pasha/source/github-repos/C++ Preproceser/examples/test.lx"));
+	std::vector<Token> tokens = lexer.lex(readFileToString("examples/test.lx"));
 
 	std::cout << "Tokens(" << tokens.size() << ") :" << '\n';
 
 	for (Token& token : tokens)
 	{
-
 		try
 		{
 			std::cout << "KEYWORD: " << Lexer::keywords[token.type] << std::endl;
