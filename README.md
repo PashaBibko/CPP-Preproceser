@@ -2,7 +2,7 @@
 
 This project is creating a preprocsessor for C++. This means lx code will be translated into c++ then compiled.
 
-Syntax for the language can be found in [Syntax.md](https://github.com/PashaBibko/CPP-Preproceser/blob/main/Syntax.md)
+Syntax for the language can be found in [Syntax.html](https://github.com/PashaBibko/CPP-Preproceser/blob/main/Syntax.html)
 
 ## Features of LX
 

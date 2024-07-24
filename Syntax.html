@@ -1,0 +1,203 @@
+<html>
+    <h1> LX Syntax </h1>
+
+    <h3> Variable declaration </h3>
+
+    LX is a staticly typed language. Similar to C++ you can declare a variable without defining it.
+
+    <p>
+    int var1 = 0;
+    int var2; # Undefined
+    </p>
+
+    <h3> Types </h3>
+
+    <h5> Basic types: </h5>
+    - int (whole number)
+    - float (decimal value)
+    - char (single ASCII character)
+    - bool (true or false)
+    - void (empty)
+    - string (a list of characters)
+
+    To mark a variable as a constant use the const keyword. Const variables must have a definition with thier declaration.
+
+    <p>
+    # Constant integer
+    const int var = 3;
+    </p>
+
+    When defining a variable using a type you can modify attributes of the type using the operator[]. Int and float types have extra two attributes (signed, size).
+
+    <p>
+    # Simple declaration
+    int var;
+
+    # Unsigned int declaration
+    int[U] var;
+
+    # Small int declaration
+    int[S] var;
+
+    # There are 3 size:
+    # S(Small), N(Normal), L(Large)
+
+    # Creates a unsigned small int
+    int[ S, U ] var;
+    </p>
+
+    Char has no sizes and only can be signed and unsigned
+
+    <h5> Memory types </h5>
+
+    To create a pointer (or reference of a variable) you must use thier relevant keyword:
+
+    <p>
+    # Int reference declaration
+    ref int = var;
+
+    # Int pointer declaration
+    ptr int = var;
+    </p>
+
+    Pointers have an ownership flag which has three states:
+    - R (raw) - pointer has no ownership of it's contents (default)
+    - S (shared) - pointer shares it's contents and when they are all out of scope the contents are deleted
+    - U (unique) - pointer own's it's contents and when it goes out of scope it is deleted
+
+    <h3> Comments </h3>
+
+    Comments in LX are marked with a #. The comment ends at the end of the line or at the next hashtag.
+
+    <p>
+    # This is a comment # while (true)
+    </p>
+
+    <h3> Simple Control Flow </h3>
+
+    If statement conditions are not required to be in brackets but must be followed by a colon. The following code must be in Braces. If no braces are found it will assume the next line of code is the contents.
+
+    <p>
+    if true:
+        console::print("Condition is true");
+
+    console::print("This will not be in the if statement");
+    </p>
+
+    LX also supports elif and else
+
+    <p>
+    if false:
+        console::print("This wont run");
+
+    elif true:
+        console::print("But this will");
+
+    else:
+        console::print("This also won't run");
+    </p>
+
+    <h3> While loops </h3>
+
+    Similar to if-else statements while loops do not require brackets around the statement. The contents of the 
+
+    <p>
+    while True:
+    {
+        console::print("Who else loves infinite loops");
+    }
+    </p>
+
+    You can also chain else off a while statement. The else statement will only run if the loop is never run.
+
+    <p>
+    while False:
+    {
+        console::print("Loop never runs");
+    }
+
+    else
+    {
+        console::print("But this does");
+    }
+    </p>
+
+    <h3> For loops </h3>
+
+    LX takes inspiration from python for its for loops.
+
+    <p>
+    # Iterates upto 5
+    for i in [5]:
+    {
+        console::print(i, "\t");
+    }
+
+    # Output:
+    # 0    1   2   3   4
+
+    </p>
+
+    You can modify what it starts iterating from and what it iterates by like this:
+    <p>
+    # Starts on 2
+    # Ends on 5
+    # Iterates 0.5 every loop
+    for i in [2, 5, 0.5]:
+    </p>
+
+    <h5> Range based for loops </h5>
+
+    You can iterate over items in a array/list/vector. The iterator(item in the example) will be a reference to the variable in the large data type. This means any modifications to it will also change the variable in the large data type.
+
+    <p>
+    for item in largeDataType:
+    {
+        console::print(item);
+    }
+    </p>
+
+    <h3> Logical operators </h3>
+
+    Logical operators can either be written as thier operator or word form. For example this:
+    <p>
+    || && !
+    </p>
+    Is the same as:
+    <p>
+    or and not
+    </p>
+
+    <h3> Function definition/declaration </h3>
+
+    LX has two types of functions: procedure and standard
+
+    Standard functions are defined as such:
+
+    <p>
+    func&lt;int&gt; main()
+    {
+        return 0;
+    }
+    </p>
+
+    Procedure function calls are replaced with the function code (similar to inline functions in C++). For highest performace they are best used for frequently called simple functions. Such as setters and getters.
+
+    <p>
+    proc&lt;int&gt; getVar()
+    {
+        return var;
+    }
+    </p>
+
+    Similiar to if statements if no braces are found it will assume the next line of code is the contents
+
+    <p>
+    proc&lt;int&gt; getVar()
+        return var;
+    </p>
+
+    If no type is chosen the preprocessor will asume void.
+
+    Unlike in C++ you must provide a definition with the declaration. The preprocessor will make sure that there are no errors.
+</html>
