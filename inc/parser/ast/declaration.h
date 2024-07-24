@@ -3,60 +3,81 @@
 // Abstract
 struct VarDeclaration : public Node
 {
-	ASTIdentifier name;
+	protected:
+		VarDeclaration(NodeType type) : Node(type) {}
 
-	bool constant = false;
-	bool reference = false;
+	public:
+		std::string name;
 
-	std::unique_ptr<Node> value;
+		bool constant = false;
+		bool reference = false;
+
+		std::unique_ptr<Node> value;
+
+		VarDeclaration() : Node(NodeType::UNDEFINED) {}
 };
 
 // Abstract
 struct ArethmeticVariableDeclaration : public VarDeclaration
 {
-	enum class Size : unsigned char
-	{
-		SMALL,
-		NORMAL,
-		LARGE,
+	protected:
+		ArethmeticVariableDeclaration(NodeType type) : VarDeclaration(type) {}
 
-		// Only for integers
-		LARGE_LARGE
-	};
+	public:
+		enum class Size : unsigned char
+		{
+			SMALL,
+			NORMAL,
+			LARGE,
 
-	Size size = Size::NORMAL;
+			// Only for integers
+			LARGE_LARGE
+		};
 
-	bool isSigned = true;
+		Size size = Size::NORMAL;
+
+		bool isSigned = true;
+
+		ArethmeticVariableDeclaration() : VarDeclaration(NodeType::UNDEFINED) {}
+};
+
+struct UnknownTypeDeclaration : public VarDeclaration
+{
+	std::string typeIdentifier;
+
+	std::vector<std::string> flags;
+
+	UnknownTypeDeclaration() : VarDeclaration(NodeType::UNKNOWN_TYPE_DECLARATION) {}
 };
 
 struct IntDeclaration : public ArethmeticVariableDeclaration
 {
-	IntDeclaration() { this->type = NodeType::INT_DECLARATION; }
+	IntDeclaration() : ArethmeticVariableDeclaration(NodeType::INT_DECLARATION) {}
 };
 
 struct FloatDeclaration : public ArethmeticVariableDeclaration
 {
-	FloatDeclaration() { this->type = NodeType::FLOAT_DECLARATION; }
+	FloatDeclaration() : ArethmeticVariableDeclaration(NodeType::FLOAT_DECLARATION) {}
 };
 
 struct CharDeclaration : public VarDeclaration
 {
-	CharDeclaration() { this->type = NodeType::CHAR_DECLARATION; }
+	CharDeclaration() : VarDeclaration(NodeType::CHAR_DECLARATION) {}
 
 	bool isSigned = true;
 };
 
 struct BoolDeclaration : public VarDeclaration
 {
-	BoolDeclaration() { this->type = NodeType::BOOL_DECLARATION; }
+	BoolDeclaration() : VarDeclaration(NodeType::BOOL_DECLARATION) {}
 };
 
 struct VoidDeclaration : public VarDeclaration
 {
-	VoidDeclaration() { this->type = NodeType::VOID_DECLARATION; }
+	VoidDeclaration() : VarDeclaration(NodeType::VOID_DECLARATION) {}
 };
 
 struct StringDeclaration : public VarDeclaration
 {
-	StringDeclaration() { this->type = NodeType::STRING_DECLARATION; }
+	StringDeclaration() : VarDeclaration(NodeType::STRING_DECLARATION) {}
 };

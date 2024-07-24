@@ -191,5 +191,5 @@ std::vector<Token> Lexer::lex(const std::string& input)
 		currentIndex++;
 	}
 
-	return std::move(tokens);
+	return tokens;
 }
