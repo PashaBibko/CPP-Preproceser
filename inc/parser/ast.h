@@ -41,12 +41,12 @@ enum class NodeType : unsigned short
 struct Node
 {
 	protected:
-		const NodeType type;
-
 		Node(NodeType type) : type(type) {}
 
 	public:
 		Node() : type(NodeType::UNDEFINED) {}
+
+		const NodeType type;
 };
 
 struct FakeNode : public Node

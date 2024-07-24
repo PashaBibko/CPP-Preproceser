@@ -6,12 +6,10 @@
 
 #include <Util/trans-table.h>
 
-static std::string emptyString = "";
-
 class Lexer
 {
 	private:
-		std::string& currentSource;
+		const std::string* currentSource;
 
 		size_t currentIndex = 0;
 
@@ -34,7 +32,7 @@ class Lexer
 	public:
 		static const TransTable<std::string, TokenType> keywords;
 
-		Lexer() : currentSource(emptyString) {}
+		Lexer() = default;
 
 		std::vector<Token> lex(const std::string& input);
 };

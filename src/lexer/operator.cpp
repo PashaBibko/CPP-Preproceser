@@ -6,7 +6,7 @@
 
 Token Lexer::lexPlusOperator()
 {
-	const char nextChar = currentSource[currentIndex + 1];
+	const char nextChar = currentSource->operator[](currentIndex + 1);
 
 	// Possible operators: ++, +=
 	switch (nextChar)
@@ -24,7 +24,7 @@ Token Lexer::lexPlusOperator()
 
 Token Lexer::lexMinusOperator()
 {
-	const char nextChar = currentSource[currentIndex + 1];
+	const char nextChar = currentSource->operator[](currentIndex + 1);
 
 	// Possible operators: --, -=, ->
 	switch (nextChar)
@@ -45,7 +45,7 @@ Token Lexer::lexMinusOperator()
 
 Token Lexer::lexMultiplyOperator()
 {
-	const char nextChar = currentSource[currentIndex + 1];
+	const char nextChar = currentSource->operator[](currentIndex + 1);
 
 	// Possible operators: *= **
 	switch (nextChar)
@@ -63,7 +63,7 @@ Token Lexer::lexMultiplyOperator()
 
 Token Lexer::lexDivideOperator()
 {
-	const char nextChar = currentSource[currentIndex + 1];
+	const char nextChar = currentSource->operator[](currentIndex + 1);
 
 	// Possible operators: /=, //
 	switch (nextChar)
@@ -81,7 +81,7 @@ Token Lexer::lexDivideOperator()
 
 Token Lexer::lexEqaulsOperator()
 {
-	const char nextChar = currentSource[currentIndex + 1];
+	const char nextChar = currentSource->operator[](currentIndex + 1);
 
 	// Possible operators: ==, =>
 	switch (nextChar)
@@ -99,7 +99,7 @@ Token Lexer::lexEqaulsOperator()
 
 Token Lexer::lexNotOperator()
 {
-	const char nextChar = currentSource[currentIndex + 1];
+	const char nextChar = currentSource->operator[](currentIndex + 1);
 
 	// Possible operators: !=
 	switch (nextChar)
@@ -114,7 +114,7 @@ Token Lexer::lexNotOperator()
 
 Token Lexer::lexLessThanOperator()
 {
-	const char nextChar = currentSource[currentIndex + 1];
+	const char nextChar = currentSource->operator[](currentIndex + 1);
 
 	// Possible operators: <=
 	switch (nextChar)
@@ -129,7 +129,7 @@ Token Lexer::lexLessThanOperator()
 
 Token Lexer::lexGreaterThanOperator()
 {
-	const char nextChar = currentSource[currentIndex + 1];
+	const char nextChar = currentSource->operator[](currentIndex + 1);
 
 	// Possible operators: >=
 	switch (nextChar)
@@ -144,7 +144,7 @@ Token Lexer::lexGreaterThanOperator()
 
 Token Lexer::lexColonOperator()
 {
-	const char nextChar = currentSource[currentIndex + 1];
+	const char nextChar = currentSource->operator[](currentIndex + 1);
 
 	// Possible operators: ::
 	switch (nextChar)

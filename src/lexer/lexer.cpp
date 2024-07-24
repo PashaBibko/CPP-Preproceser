@@ -31,11 +31,11 @@ Token Lexer::lexMultiChar()
 	size_t lengthOfWord = 1;
 
 	// Loops through the source code until the whitespace is reached
-	while (currentIndex + lengthOfWord < currentSource.length() && isAlphaNumeric(currentSource[currentIndex + lengthOfWord]))
+	while (currentIndex + lengthOfWord < currentSource->length() && isAlphaNumeric(currentSource->operator[](currentIndex + lengthOfWord)))
 		lengthOfWord++;
 
 	// Turns the word into a string
-	const std::string word = currentSource.substr(currentIndex, lengthOfWord);
+	const std::string word = currentSource->substr(currentIndex, lengthOfWord);
 
 	TokenType tokenType = TokenType::UNDEFINED;
 
@@ -62,18 +62,18 @@ std::vector<Token> Lexer::lex(const std::string& input)
 	std::vector<Token> tokens;
 
 	// The current source code (passed by reference for performance)
-	currentSource = input;
+	currentSource = &input;
 
 	// Sets lexer variables to their default values
 	currentIndex = 0;
 
-	const size_t sourceLength = currentSource.length();
+	const size_t sourceLength = currentSource->length();
 
 	// Loops through the source code until the end is reached
 	while (currentIndex < sourceLength)
 	{
 		//  Gets the current character
-		const char currentChar = currentSource[currentIndex];
+		const char currentChar = currentSource->operator[](currentIndex);
 
 		// Checks if the next character is whitespace
 		bool isNextCharWhitespace = false;
@@ -81,7 +81,7 @@ std::vector<Token> Lexer::lex(const std::string& input)
 		size_t nextIndex = currentIndex + 1;
 
 		if (nextIndex < sourceLength)
-			isNextCharWhitespace = isWhitespace(currentSource[nextIndex]);
+			isNextCharWhitespace = isWhitespace(currentSource->operator[](nextIndex));
 
 		// Switch statement for the current character
 		switch (currentChar)
@@ -102,7 +102,7 @@ std::vector<Token> Lexer::lex(const std::string& input)
 
 			// Skips comments
 			case '#':
-				do { currentIndex++; } while (currentIndex < sourceLength && !isEndOfComment(currentSource[currentIndex]));
+				do { currentIndex++; } while (currentIndex < sourceLength && !isEndOfComment(currentSource->operator[](currentIndex)));
 				break;
 
 			// Single character tokens
