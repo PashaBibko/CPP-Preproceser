@@ -31,5 +31,3 @@ Other features can be found here: WIP
 Function decorators are a way to add functionality to a function without modifying the function itself.
 This is useful for when you want to add logging, timing, or other functionality to a function without modifying the function itself.
 More info can be found here: WIP
-
-## Complatible languages
