@@ -1,0 +1,14 @@
+# Folder locations to exclude
+
+.vs/
+.git/
+.vscode/
+
+x64/
+
+# Ignore all visual studio specific files
+
+*.sln
+*.vcxproj
+*.vcxproj.user
+*.vcxproj.filters
